@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env
+uploads/
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.DS_Store
+
+# eval output that should not be committed
+nlp-service/eval/results/llm_cache.json

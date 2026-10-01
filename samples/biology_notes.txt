@@ -1,0 +1,65 @@
+INTRODUCTION TO CELL ENERGY
+
+Living cells need a constant supply of energy to grow, repair themselves and reproduce. Photosynthesis is defined as the process by which green plants, algae and some bacteria convert sunlight, water and carbon dioxide into glucose and oxygen. This process occurs mainly in the chloroplasts of plant cells. In 1779, Jan Ingenhousz showed that plants need light to purify air, which began the modern study of photosynthesis.
+
+The overall equation for photosynthesis is 6CO2 + 6H2O + light energy -> C6H12O6 + 6O2. The rate of photosynthesis depends on light intensity, temperature, and carbon dioxide concentration. Higher light intensity generally increases the rate up to a saturation point of roughly 10 percent of full sunlight for many shade plants.
+
+1. Light-dependent reactions
+
+The light-dependent reactions take place in the thylakoid membranes of the chloroplast. Chlorophyll absorbs light, mostly in the red and blue wavelengths, and uses that energy to split water molecules. This releases oxygen as a by-product and produces ATP and NADPH. ATP is called the energy currency of the cell because it stores and transfers usable chemical energy. The electron transport chain in the thylakoid membrane pumps protons and drives ATP synthase.
+
+2. The Calvin cycle
+
+The Calvin cycle, also known as the light-independent reactions, takes place in the stroma of the chloroplast. The enzyme RuBisCO fixes carbon dioxide onto a five-carbon sugar called RuBP. Using the ATP and NADPH from the first stage, the cycle reduces the fixed carbon into glyceraldehyde-3-phosphate, which is then used to build glucose. Three turns of the cycle are needed to produce one molecule of G3P that can leave the cycle.
+
+CELLULAR RESPIRATION
+
+Cellular respiration refers to the metabolic process that converts glucose and oxygen into ATP, water, and carbon dioxide. This process is also known as aerobic respiration when oxygen is present. The equation for respiration is C6H12O6 + 6O2 -> 6CO2 + 6H2O + energy. One molecule of glucose can yield about 30 to 32 molecules of ATP in eukaryotic cells.
+
+3. Glycolysis and the Krebs cycle
+
+Glycolysis takes place in the cytoplasm and splits one glucose molecule into two molecules of pyruvate, producing a net gain of 2 ATP. Pyruvate then enters the mitochondria, where the Krebs cycle oxidises it completely to carbon dioxide and generates NADH and FADH2. Mitochondria are called the powerhouse of the cell because they produce most of the ATP through oxidative phosphorylation on the inner membrane.
+
+4. Fermentation
+
+When oxygen is absent, cells rely on fermentation. Lactic acid fermentation in muscle cells regenerates NAD+ so that glycolysis can continue, but it yields only 2 ATP per glucose. Alcoholic fermentation in yeast produces ethanol and carbon dioxide instead, and is the basis of bread making and brewing.
+
+CELL MEMBRANES
+
+The plasma membrane is a phospholipid bilayer that controls what enters and leaves the cell. Osmosis is defined as the diffusion of water across a selectively permeable membrane from a region of low solute concentration to a region of high solute concentration. Active transport, unlike diffusion, requires energy in the form of ATP to move substances against their concentration gradient.
+
+ENZYMES AND METABOLISM
+
+Enzymes are biological catalysts that speed up chemical reactions in cells without being used up. An enzyme works by lowering the activation energy of a reaction. The substrate binds to the active site, forming an enzyme-substrate complex, and the products are then released. Enzyme activity depends on temperature and pH: most human enzymes work best near 37 degrees Celsius and pH 7.4, and extreme heat denatures them. Many metabolic pathways, including glycolysis and the Calvin cycle, are chains of enzyme-controlled steps. Cells regulate these pathways by feedback inhibition, in which the end product of a pathway blocks an early enzyme. Because almost every step of metabolism either produces or consumes ATP, enzyme regulation is also a way of regulating the energy budget of the cell. The energy released when ATP is hydrolysed to ADP is roughly 30.5 kilojoules per mole, and this small, portable amount of energy is what powers most cellular work.
+
+5. DNA replication and protein synthesis
+
+DNA replication is semi-conservative: each new double helix contains one original strand and one newly built strand. The enzyme helicase unwinds the helix and DNA polymerase adds nucleotides in the 5 prime to 3 prime direction. Protein synthesis has two stages. Transcription copies a gene into messenger RNA in the nucleus, and translation reads the mRNA on ribosomes to assemble amino acids into a protein. Each amino acid added to a growing chain costs the cell the equivalent of about four ATP molecules, which is why growing cells devote a large share of their energy to making proteins. A mutation is a change in the DNA sequence and may alter the protein that is produced.
+
+CELL DIVISION
+
+Mitosis is the type of cell division that produces two genetically identical daughter cells and is used for growth and repair. Its stages, in order, are prophase, metaphase, anaphase and telophase. Meiosis, by contrast, produces four genetically different haploid gametes and involves two rounds of division. Crossing over during prophase I shuffles genes between homologous chromosomes and is a major source of genetic variation. Cell division is tightly controlled by checkpoints, and the cell needs a great deal of ATP to build new organelles and to move chromosomes along the spindle fibres. When checkpoints fail, uncontrolled division can lead to cancer.
+
+ECOSYSTEMS AND ENERGY FLOW
+
+Energy flows through an ecosystem in one direction, from the sun to producers, then to consumers and decomposers. Producers such as plants capture solar energy by photosynthesis, and only about 1 percent of the sunlight that reaches a leaf is stored as chemical energy. According to the ten percent rule, roughly 10 percent of the energy at one trophic level is passed to the next, and the remainder is lost as heat through respiration. This is why food chains rarely have more than five links. Matter, unlike energy, is recycled: carbon, nitrogen and phosphorus move between organisms and the environment in biogeochemical cycles. The carbon cycle links photosynthesis, which removes carbon dioxide from the air, with respiration and combustion, which return it.
+
+PLANT ADAPTATIONS
+
+Plants in hot, dry environments have evolved variations of photosynthesis. In C4 plants such as maize, carbon dioxide is first fixed into a four-carbon compound in mesophyll cells and then delivered to bundle sheath cells, which reduces photorespiration by RuBisCO. CAM plants such as cacti open their stomata only at night to save water, storing carbon dioxide as organic acids and using it in the Calvin cycle during the day. These adaptations show that the basic light-dependent and light-independent reactions can be tuned to the environment. Stomata are small pores that control gas exchange, and guard cells open and close them by changing their water content through osmosis.
+
+MUSCLE AND EXERCISE
+
+During short bursts of intense exercise, muscle cells use up their stored ATP within seconds and switch to the phosphocreatine system and then to lactic acid fermentation. Lactic acid fermentation is fast but inefficient, giving only 2 ATP per glucose, and the accumulation of lactate contributes to muscle fatigue. In sustained, moderate exercise, aerobic respiration in the mitochondria supplies most of the ATP. Trained athletes have more mitochondria per muscle cell and a better oxygen supply, which raises the rate of ATP production. The oxygen debt after exercise is the extra oxygen the body needs to restore ATP and remove lactate.
+
+DIGESTION AND ENERGY
+
+Digestion breaks food into small molecules that cells can absorb. Carbohydrates are hydrolysed by amylase to glucose, proteins are broken down by proteases to amino acids, and fats are broken down by lipases to fatty acids and glycerol. Glucose is the main fuel for respiration, and the hormone insulin lowers blood glucose by helping cells take it up. Excess glucose is stored as glycogen in the liver and muscles, or converted to fat. One gram of fat releases about 37 kilojoules of energy, more than twice the roughly 17 kilojoules released by a gram of carbohydrate or protein.
+
+BIOFUELS AND PHOTOSYNTHESIS IN INDUSTRY
+
+Biofuels are fuels made from recently living biomass and are therefore part of the short carbon cycle. Bioethanol is produced by the alcoholic fermentation of sugars from crops such as sugarcane and maize, while biodiesel is made from plant oils. Researchers are also studying artificial photosynthesis, which uses catalysts and sunlight to split water into hydrogen and oxygen. The theoretical maximum efficiency of natural photosynthesis is around 4.6 percent for C3 plants, which leaves a large gap that engineers hope to close by improving RuBisCO or by building synthetic systems.
+
+CONCLUSION
+
+Photosynthesis and respiration are complementary processes: the products of one are the reactants of the other. Together they cycle carbon and energy through ecosystems, and understanding both is essential for any study of biology.
