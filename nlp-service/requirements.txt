@@ -1,0 +1,26 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9
+pydantic>=2.6
+python-dotenv>=1.0
+numpy>=1.26
+opencv-python-headless>=4.8
+PyMuPDF>=1.24
+easyocr>=1.7.1
+pytesseract>=0.3.10
+pytest>=8.0
+httpx>=0.27
+
+# ---- Part 2: analysis ----
+scikit-learn>=1.4
+networkx>=3.2
+yake>=0.4.8
+sentence-transformers>=2.7
+# sentence-transformers pulls in torch; CPU-only wheel keeps installs small:
+# pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+
+# ---- Part 3: retrieval + intent router ----
+rank-bm25>=0.2.2
+rouge-score>=0.1.2   # eval/run_eval.py + tests
+joblib>=1.3

@@ -1,0 +1,4 @@
+method,alpha,questions,recall@1,recall@3,recall@5,MRR
+BM25 only,1.0,21,0.8095,1.0,1.0,0.9048
+Embeddings only,0.0,21,0.8095,1.0,1.0,0.9048
+Hybrid (alpha=0.4),0.4,21,0.8571,1.0,1.0,0.9286

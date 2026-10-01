@@ -1,0 +1,4 @@
+method,words,ROUGE-1 F1,ROUGE-2 F1,ROUGE-L F1,note
+TextRank (ours),118,0.4324,0.1636,0.2793,
+Lead-N baseline,100,0.3824,0.1287,0.2157,
+Random sentences (mean of 20),90,0.3155,0.0683,0.1652,

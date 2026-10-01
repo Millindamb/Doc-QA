@@ -1,0 +1,2 @@
+# extra dependencies for eval/run_eval.py (on top of ../requirements.txt)
+rouge-score>=0.1.2

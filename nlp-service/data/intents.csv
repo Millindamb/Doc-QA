@@ -1,0 +1,241 @@
+query,intent
+What is photosynthesis?,question
+What does the document say about cellular respiration?,question
+Define osmosis as used in this text,question
+How does the electron transport chain produce ATP?,question
+Why do plants need sunlight to grow?,question
+Why is the mitochondria called the powerhouse of the cell?,question
+Explain how the Calvin cycle works,question
+Explain the difference between mitosis and meiosis,question
+What are the main causes of the French Revolution?,question
+Who proposed the theory described in chapter 2?,question
+When was the treaty signed according to the notes?,question
+Which factors affect the rate of a chemical reaction?,question
+How is entropy related to the second law of thermodynamics?,question
+What is the formula for kinetic energy?,question
+Can you summarize the section on supply and demand?,question
+What are the advantages of a binary search tree?,question
+How do vaccines train the immune system?,question
+What is the role of chlorophyll?,question
+Tell me about the water cycle,question
+Describe the structure of a DNA molecule,question
+What is the time complexity of quicksort and why?,question
+Compare prokaryotic and eukaryotic cells,question
+What does the author mean by cultural hegemony?,question
+How many chambers does the human heart have?,question
+Why did inflation rise in the 1970s?,question
+Give me an overview of the key ideas in this document,question
+Which enzyme breaks down starch?,question
+What are the limitations of the study?,question
+Is glucose a monosaccharide or a disaccharide?,question
+How does supply chain disruption affect prices?,question
+What happens during the light-dependent reactions?,question
+What is the significance of the 1930 discovery mentioned?,question
+Where does glycolysis take place in the cell?,question
+What is the conclusion of the paper?,question
+How are the two theories different from each other?,question
+Elaborate on the concept of natural selection,question
+What is meant by carrying capacity?,question
+In what order do the stages of mitosis occur?,question
+Does the document mention any side effects?,question
+Why does temperature change the rate of enzyme activity?,question
+I don't understand how the Calvin cycle works,doubt
+I still don't get the difference between mitosis and meiosis,doubt
+"This explanation is confusing, can you simplify it?",doubt
+Can you explain that again in simpler words?,doubt
+That doesn't make sense to me,doubt
+I'm stuck on this part about entropy,doubt
+"Sorry, I didn't follow the last step",doubt
+Explain it like I'm five,doubt
+Could you break that down step by step?,doubt
+I'm confused about why the reaction needs oxygen,doubt
+What do you mean by that last sentence?,doubt
+"Wait, how did you get from step two to step three?",doubt
+I can't wrap my head around osmosis,doubt
+Can you put that in plain English?,doubt
+"I am lost, please make it easier to understand",doubt
+Huh? Why would energy be lost as heat?,doubt
+"Still not clear to me, try a different explanation",doubt
+"That went over my head, can you go slower?",doubt
+"I keep mixing up DNA and RNA, help me understand them",doubt
+Can you give a simpler example of natural selection?,doubt
+I dont get it,doubt
+"The formula looks scary, what does each symbol mean in simple terms?",doubt
+"I misunderstood the last answer, can you clarify?",doubt
+Not sure I understand what a limiting reagent is,doubt
+Please rephrase that more simply,doubt
+Why is this so hard to grasp? Walk me through it slowly,doubt
+I read the paragraph three times and it still confuses me,doubt
+"Could you use an analogy, I'm having trouble with this concept",doubt
+This part about inflation is unclear to me,doubt
+I need this explained more basically,doubt
+You lost me at the second paragraph,doubt
+What does that jargon mean? I'm a beginner,doubt
+I didn't get the point about supply curves,doubt
+Sorry but I really cannot understand this theorem,doubt
+"Say that differently, I'm not following",doubt
+I'm struggling with the idea of equilibrium,doubt
+Can we go over the derivation again? I'm confused,doubt
+"Make it simpler please, I'm new to this topic",doubt
+I'm having a hard time seeing why that is true,doubt
+That answer was too technical for me,doubt
+Quiz me on this document,quiz
+Give me a quiz on chapter 3,quiz
+Test my knowledge of photosynthesis,quiz
+Can you test me on what I just read?,quiz
+Ask me some questions to check my understanding,quiz
+I want to take a quiz,quiz
+Make a 10 question multiple choice quiz,quiz
+Start a quiz about cell biology,quiz
+Question me on the key terms,quiz
+Let's play a quiz game on this material,quiz
+Give me 5 MCQs from this text,quiz
+Can I get a short test on the main topics?,quiz
+See if I remember the important points,quiz
+"Quiz me, exam mode, hard difficulty",quiz
+Create an interactive quiz with answers at the end,quiz
+Check whether I've understood the notes,quiz
+Test me on definitions from the document,quiz
+Run a quick quiz to see how much I know,quiz
+"Grade my answers, quiz me first",quiz
+Pop quiz time on thermodynamics,quiz
+Ask me true or false questions about this chapter,quiz
+I'd like to be tested on the material,quiz
+Give me a multiple choice test,quiz
+Can you quiz me on the causes of the war?,quiz
+Assess my understanding with a few questions,quiz
+Make me a flashcard quiz from these notes,quiz
+Let me try answering questions about this topic and score me,quiz
+Do a quiz on the first section,quiz
+Evaluate my knowledge of this subject,quiz
+Quiz time! Easy level please,quiz
+Give me a self test on this unit,quiz
+Can you examine me on what's in this file?,quiz
+"One question at a time, quiz me",quiz
+Prepare a timed quiz for me,quiz
+I want to see how well I know this chapter,quiz
+Fire questions at me until I get them right,quiz
+Build a mini quiz from the key points,quiz
+Test yourself style quiz on organic chemistry please,quiz
+Let's do a revision quiz,quiz
+Challenge me with questions from this document,quiz
+Give me practice questions on this topic,practice
+Generate some practice problems about thermodynamics,practice
+I need exercises to practice for my exam,practice
+Create sample exam questions from chapter 4,practice
+What questions are likely to come in the exam?,practice
+Write 10 short answer questions on this material,practice
+Give me past-paper style questions,practice
+Make a worksheet on this chapter,practice
+Provide some numerical problems to solve,practice
+I want more practice on the Calvin cycle,practice
+Suggest important questions for revision,practice
+Generate essay questions about the French Revolution,practice
+Give me long answer questions with model answers,practice
+Prepare a mock test paper,practice
+Can you produce questions I can practice with?,practice
+List expected exam questions from this document,practice
+Create fill in the blank exercises from the notes,practice
+I'd like problems to work through on my own,practice
+Give me some hard problems on entropy,practice
+Draft a practice set covering all the main topics,practice
+"Write questions for me to study with, no answers yet",practice
+"More practice problems please, similar to the last ones",practice
+Generate viva questions for this subject,practice
+Give me a set of assignment questions on this unit,practice
+Frame questions that an examiner would ask from this text,practice
+Come up with 5 application-based problems,practice
+Can I get some drill questions on this concept?,practice
+Make exercises with increasing difficulty,practice
+Create a question bank for this document,practice
+I need extra problems on chapter 2 for homework practice,practice
+What could be asked in the final exam from this?,practice
+Produce short answer and long answer questions with solutions,practice
+Give me revision questions,practice
+Write a problem set on this topic,practice
+Sample questions for the board exam please,practice
+Give me some case-study questions based on this,practice
+Generate questions to practice recall of the definitions,practice
+Design a practice test for this section,practice
+Create word problems from the formulas in the text,practice
+Prepare an exam-style question paper from these notes,practice
+Research this topic further,research
+Do some research on the latest treatments for diabetes,research
+What is the current research on CRISPR?,research
+Find recent studies about climate change and agriculture,research
+Look this up online and tell me more,research
+Search the web for newer developments on this,research
+Go beyond the document and investigate this idea,research
+What do experts outside this text say about inflation?,research
+Investigate whether the claims in this paper still hold,research
+Look into the history of this theory,research
+Find out what other sources say about this,research
+Is there newer evidence contradicting this document?,research
+Dig deeper into quantum entanglement from external sources,research
+What's the latest news on this subject?,research
+Do a deep dive on this topic using the internet,research
+Check Wikipedia for background on this concept,research
+Can you research who developed this method?,research
+Find academic papers related to this study,research
+I want to know more than what's in this document,research
+Pull in outside information about the author's argument,research
+Has anything changed in this field since this was written?,research
+Verify these statistics using online sources,research
+Look for recent advances related to this technology,research
+Explore what scientists currently think about this,research
+Do background research on this event,research
+Search for additional information on this disease,research
+Get me up to date information about this topic,research
+Conduct online research on renewable energy policy,research
+What does the wider literature say about this?,research
+Cross-check this with other reliable sources,research
+Find more information from the web on this,research
+Look up current statistics about this issue,research
+Please investigate the controversy around this theory,research
+Research and summarize different viewpoints on this,research
+Find out how this concept is applied in industry today,research
+Any recent breakthroughs on this topic?,research
+See what the internet says about this method,research
+Research the origin of this term,research
+Get external context for this historical period,research
+Scan the web for expert opinions on this,research
+Find me resources to study this topic,resources
+Recommend some YouTube videos on photosynthesis,resources
+Where can I learn more about machine learning?,resources
+Suggest good books for this subject,resources
+Are there any online courses on this?,resources
+Show me tutorials for beginners,resources
+Give me links to study material,resources
+Where should I study this from?,resources
+Find videos that explain this concept visually,resources
+What are the best websites to learn calculus?,resources
+Any good lectures on thermodynamics?,resources
+Recommend a textbook covering this material,resources
+I'd like something to watch about the Krebs cycle,resources
+Get me some reading material on this topic,resources
+Suggest free courses for organic chemistry,resources
+Point me to good learning resources,resources
+Which playlists on YouTube cover this syllabus?,resources
+Help me find study guides for this chapter,resources
+What should I read to understand this better?,resources
+Share some educational videos about the solar system,resources
+Recommend podcasts or channels about this,resources
+Are there interactive simulations I can use to learn this?,resources
+Where can I find lecture notes for this course?,resources
+Any tutorial series you'd suggest for this?,resources
+Look for MOOCs on this subject,resources
+Give me a learning path with links,resources
+Where can I practice and read more about this outside the document?,resources
+Suggest good channels to follow for learning physics,resources
+Find me cheat sheets and reference material,resources
+Which books do students usually use for this?,resources
+Show me video lessons on integration,resources
+I need extra study materials,resources
+List helpful websites and videos for revision,resources
+Any online lecture recommendations for this topic?,resources
+Where do I go to learn this from scratch?,resources
+Curate a reading list for this topic,resources
+Find beginner friendly articles and videos,resources
+Recommend Khan Academy or similar lessons on this,resources
+Give me a list of learning materials,resources
+What are some good references to study this?,resources
