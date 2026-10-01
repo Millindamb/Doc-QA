@@ -1,0 +1,7 @@
+Here are study resources for *{{title}}*.
+
+{{videos}}
+
+{{wikipedia}}
+
+{{suggestions}}

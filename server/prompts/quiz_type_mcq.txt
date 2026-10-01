@@ -1,0 +1,1 @@
+Every question is multiple choice with exactly 4 options. "answer" must be the EXACT text of the correct option (not a letter). Options must not include letter prefixes like "A)".

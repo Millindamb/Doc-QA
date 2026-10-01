@@ -1,0 +1,1 @@
+I've prepared **{{count}} {{difficulty}} practice questions** with model answers on *{{title}}*. Open the **Practice** tab to try them first and then reveal the answers. (Set id: `{{quiz_id}}`)

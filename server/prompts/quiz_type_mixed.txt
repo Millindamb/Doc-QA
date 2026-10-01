@@ -1,0 +1,1 @@
+Mix the two formats, roughly half each. Multiple-choice questions have exactly 4 options and "answer" is the EXACT text of the correct option (no letter prefixes). Short-answer questions have "options": [] and "answer" is a model answer of 1-3 sentences containing the key terms.

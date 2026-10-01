@@ -1,0 +1,1 @@
+EXAM MODE: the excerpts are the highest-importance passages of the document (definitions, formulas, key facts). Ask the questions an examiner would most likely set.

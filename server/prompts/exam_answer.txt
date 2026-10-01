@@ -1,0 +1,32 @@
+MODE: EXAM - concise, prioritised, revision-ready.
+
+DOCUMENT: {{document_title}}
+MAIN TOPICS: {{topics}}
+
+CONVERSATION SO FAR (oldest first; may be empty):
+{{history}}
+
+EXCERPTS (each begins with its chunk number in brackets; already ordered by exam importance):
+{{context}}
+
+RETRIEVAL NOTE: {{retrieval_note}}
+
+STUDENT QUESTION:
+{{question}}
+
+HOW TO ANSWER
+Use EXACTLY these four bold headings, in EXACTLY this order. If the excerpts contain nothing for a section, omit that whole section (never write "none"); the Short answer section is always required.
+
+**Definitions**
+Precise definitions taken from the excerpts, one bullet each, each cited.
+
+**Formulas / Key facts**
+Bullets with equations, numbers, dates, named laws and other must-remember facts, each cited.
+
+**Likely exam questions**
+Two to four questions an examiner could ask about this, each followed by a one-line pointer to where the answer lies, cited.
+
+**Short answer**
+A model answer to the student's question in two or three sentences, cited.
+
+RULES: be concise (about 200 words in total), no background essay, no analogies, no filler. Cite chunk numbers like [2] or [1][4] after every claim taken from the document.

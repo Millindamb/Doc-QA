@@ -1,0 +1,1 @@
+Every question is short-answer. "options" must be an empty array []. "answer" is a model answer of 1-3 sentences containing the key terms a correct response must mention.

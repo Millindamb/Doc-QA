@@ -1,0 +1,13 @@
+A student is studying a document titled "{{document_title}}".
+Topics: {{topics}}
+Key terms: {{keywords}}
+{{focus_line}}
+
+Suggest study resources as JSON of exactly this shape:
+{"topics": [{"title": "related topic worth studying next", "why": "one short sentence"}],
+ "books": [{"title": "book title", "author": "author name", "why": "one short sentence"}]}
+
+RULES
+- 3 to 5 topics and 2 to 4 books.
+- Only suggest well-known, real, widely available books; if you are not sure a book exists, leave it out.
+- NEVER include URLs.

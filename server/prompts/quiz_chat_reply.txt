@@ -1,0 +1,1 @@
+I've created a **{{count}}-question {{difficulty}} {{type_label}} quiz** on *{{title}}*. Open the **Quiz** tab to answer it - your score and weak topics are saved. (Quiz id: `{{quiz_id}}`)

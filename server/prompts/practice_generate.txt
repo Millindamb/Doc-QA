@@ -1,0 +1,24 @@
+Create exactly {{count}} PRACTICE questions with model answers from the excerpts of "{{document_title}}".
+
+DIFFICULTY: {{difficulty_guidance}}
+FORMAT: {{type_guidance}}
+{{mode_guidance}}
+
+EXCERPTS (each begins with its chunk number in brackets):
+{{context}}
+
+For practice, "answer" is a complete model answer a student could compare their own attempt against, and "explanation" says what an examiner looks for (key terms, common mistakes).
+
+OUTPUT: one JSON object of exactly this shape:
+{"questions": [
+  {"question": "string",
+   "options": [],
+   "answer": "string",
+   "explanation": "string",
+   "sourceChunk": 3}
+]}
+
+RULES
+- "sourceChunk" is the integer chunk number (the number in brackets) of the excerpt the question is based on. Use only numbers that appear above.
+- Every question must be answerable from the excerpts alone. Do not invent facts.
+- Return exactly {{count}} items in "questions".

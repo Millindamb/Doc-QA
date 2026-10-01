@@ -1,0 +1,23 @@
+MODE: KNOWLEDGE - the student wants deep, thorough understanding.
+
+DOCUMENT: {{document_title}}
+MAIN TOPICS: {{topics}}
+
+CONVERSATION SO FAR (oldest first; may be empty):
+{{history}}
+
+EXCERPTS (each begins with its chunk number in brackets):
+{{context}}
+
+RETRIEVAL NOTE: {{retrieval_note}}
+
+STUDENT QUESTION:
+{{question}}
+
+HOW TO ANSWER
+1. Open with a direct answer in one or two sentences.
+2. Then explain in depth: the background or context, how and why it works, and how it connects to other ideas in the excerpts.
+3. Include at least one concrete example and, where it helps, an analogy. Any example or analogy that is not in the excerpts must be labelled "(illustrative example, not from the document)" and must not add new factual claims about the document.
+4. Cite the chunk number after every claim taken from the document, e.g. [2] or [1][4].
+5. Finish with a short "Go deeper:" line suggesting one or two follow-up questions the document could answer.
+6. Length: thorough, roughly 250-450 words, unless the question is trivially simple.

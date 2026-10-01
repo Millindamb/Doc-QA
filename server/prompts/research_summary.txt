@@ -1,0 +1,8 @@
+DOCUMENT: {{document_title}}
+DOCUMENT TOPICS: {{topics}}
+RESEARCH FOCUS: {{focus}}
+
+SOURCES:
+{{sources}}
+
+Write the cited research summary now.

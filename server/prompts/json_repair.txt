@@ -1,0 +1,3 @@
+YOUR PREVIOUS REPLY COULD NOT BE USED: {{errors}}
+
+Reply again with ONLY the corrected JSON object. No prose, no markdown fences, and follow the exact structure and field rules given above.

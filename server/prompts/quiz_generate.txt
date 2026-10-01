@@ -1,0 +1,22 @@
+Create a quiz of exactly {{count}} questions from the excerpts of "{{document_title}}".
+
+DIFFICULTY: {{difficulty_guidance}}
+FORMAT: {{type_guidance}}
+{{mode_guidance}}
+
+EXCERPTS (each begins with its chunk number in brackets):
+{{context}}
+
+OUTPUT: one JSON object of exactly this shape:
+{"questions": [
+  {"question": "string",
+   "options": ["string", "string", "string", "string"],
+   "answer": "string",
+   "explanation": "one or two sentences saying why the answer is correct",
+   "sourceChunk": 3}
+]}
+
+RULES
+- "sourceChunk" is the integer chunk number (the number in brackets) of the excerpt the question is based on. Use only numbers that appear above.
+- Every question must be answerable from the excerpts alone. Do not invent facts.
+- No duplicate questions. Return exactly {{count}} items in "questions".

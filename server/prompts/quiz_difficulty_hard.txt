@@ -1,0 +1,1 @@
+HARD: multi-step reasoning, applying ideas to a new situation, combining facts from different excerpts. Wrong options must be very plausible and reflect common misconceptions.

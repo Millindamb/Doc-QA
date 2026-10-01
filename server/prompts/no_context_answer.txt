@@ -1,0 +1,3 @@
+I couldn't find anything in **{{document_title}}** that relates to that question, so I won't guess.
+
+If you'd like, reply **"research this"** and I'll look it up beyond the document, or try rephrasing with terms the document uses (main topics: {{topics}}).
