@@ -1,0 +1,76 @@
+/* Full black theme. Active when <html class="dark">.
+   It overrides the light Tailwind classes already used in your panels,
+   so Quiz / Practice / Research / Resources etc. turn dark without editing them. */
+
+html.dark { color-scheme: dark; }
+html.dark body { background: #000 !important; color: #ececec !important; }
+
+/* surfaces */
+.dark .bg-white       { background-color: #0d0d0d !important; }
+.dark .bg-slate-50    { background-color: #000000 !important; }
+.dark .bg-slate-100   { background-color: #1c1c1c !important; }
+.dark .bg-slate-200   { background-color: #2a2a2a !important; }
+.dark .hover\:bg-slate-50:hover  { background-color: #161616 !important; }
+.dark .hover\:bg-slate-100:hover { background-color: #242424 !important; }
+
+/* text */
+.dark .text-slate-900, .dark .text-slate-800 { color: #f2f2f2 !important; }
+.dark .text-slate-700 { color: #d6d6d6 !important; }
+.dark .text-slate-600 { color: #b8b8b8 !important; }
+.dark .text-slate-500 { color: #9a9a9a !important; }
+.dark .text-slate-400 { color: #7f7f7f !important; }
+.dark .placeholder\:text-slate-500::placeholder { color: #8a8a8a !important; }
+.dark ::placeholder { color: #8a8a8a; }
+
+/* borders and dividers */
+.dark .border-slate-100, .dark .border-slate-200 { border-color: #262626 !important; }
+.dark .border-slate-300 { border-color: #363636 !important; }
+.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]),
+.dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]) { border-color: #262626 !important; }
+
+/* form fields */
+.dark input, .dark textarea, .dark select {
+  background-color: #151515;
+  color: #ececec;
+  border-color: #363636;
+}
+
+/* accent colours (links, badges, highlights) */
+.dark .text-indigo-600, .dark .text-indigo-700 { color: #a5b4fc !important; }
+.dark .bg-indigo-50, .dark .bg-indigo-100 { background-color: #1e1b4b !important; }
+.dark .border-indigo-200, .dark .border-indigo-300 { border-color: #3730a3 !important; }
+.dark .text-indigo-800 { color: #c7d2fe !important; }
+
+.dark .bg-amber-50, .dark .bg-amber-100 { background-color: #2a1f05 !important; }
+.dark .text-amber-700, .dark .text-amber-800, .dark .text-amber-900 { color: #fcd34d !important; }
+.dark .border-amber-200, .dark .border-amber-300 { border-color: #5c4310 !important; }
+
+.dark .bg-green-50, .dark .bg-green-100, .dark .bg-emerald-50, .dark .bg-emerald-100 { background-color: #06210f !important; }
+.dark .text-green-700, .dark .text-green-800, .dark .text-emerald-700, .dark .text-emerald-800 { color: #86efac !important; }
+.dark .border-green-200, .dark .border-emerald-200 { border-color: #14532d !important; }
+
+.dark .bg-red-50, .dark .bg-red-100 { background-color: #2b0a0a !important; }
+.dark .text-red-600, .dark .text-red-700, .dark .text-red-800 { color: #fca5a5 !important; }
+.dark .border-red-200, .dark .border-red-300 { border-color: #7f1d1d !important; }
+
+/* markdown / typography plugin, if Markdown.jsx uses "prose" */
+.dark .prose {
+  --tw-prose-body: #e2e2e2;
+  --tw-prose-headings: #ffffff;
+  --tw-prose-bold: #ffffff;
+  --tw-prose-links: #a5b4fc;
+  --tw-prose-bullets: #8a8a8a;
+  --tw-prose-counters: #8a8a8a;
+  --tw-prose-quotes: #d6d6d6;
+  --tw-prose-code: #f2f2f2;
+  --tw-prose-hr: #2a2a2a;
+  --tw-prose-th-borders: #333;
+  --tw-prose-td-borders: #262626;
+  color: #e2e2e2;
+}
+.dark pre, .dark code { background-color: #161616; color: #e8e8e8; }
+
+/* dark scrollbars */
+.dark ::-webkit-scrollbar { width: 10px; height: 10px; }
+.dark ::-webkit-scrollbar-thumb { background: #333; border-radius: 8px; }
+.dark ::-webkit-scrollbar-track { background: transparent; }
