@@ -15,6 +15,12 @@ export function AuthProvider({ children }) {
     }
   });
 
+  // sign-in / create-account card (opened from anywhere with openAuth)
+  const [authUi, setAuthUi] = useState({ open: false, mode: 'login' });
+  const openAuth = useCallback((mode = 'login') => setAuthUi({ open: true, mode }), []);
+  const closeAuth = useCallback(() => setAuthUi((s) => ({ ...s, open: false })), []);
+  const setAuthMode = useCallback((mode) => setAuthUi((s) => ({ ...s, mode })), []);
+
   const logout = useCallback(() => {
     localStorage.removeItem('docqa_token');
     localStorage.removeItem('docqa_user');
@@ -41,12 +47,18 @@ export function AuthProvider({ children }) {
       logout,
       login: async (email, password) => finish(await api.login(email, password)),
       register: async (name, email, password) => finish(await api.register(name, email, password)),
+      authOpen: authUi.open,
+      authMode: authUi.mode,
+      openAuth,
+      closeAuth,
+      setAuthMode,
     }),
-    [token, user, logout, finish]
+    [token, user, logout, finish, authUi, openAuth, closeAuth, setAuthMode]
   );
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
+// no longer used by App.jsx (guests can browse), kept so old imports do not break
 export function RequireAuth({ children }) {
   const { token } = useAuth();
   const location = useLocation();

@@ -127,3 +127,28 @@ html.dark {
 
 /* navbar tabs */
 .sb-strong-hover:hover { color: var(--sb-strong); }
+
+
+/* ===== glassmorphism sign-in / create-account card ===== */
+.glass-card {
+  background: linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.05)) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid rgba(255,255,255,.22) !important;
+  box-shadow: 0 10px 50px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.28) !important;
+}
+/* inputs stay see-through in both themes (the global dark input rule would make them solid) */
+.glass-card input {
+  background-color: rgba(255,255,255,.1) !important;
+  color: #fff !important;
+  border-color: rgba(255,255,255,.22) !important;
+}
+.glass-card input:focus { border-color: rgba(255,255,255,.55) !important; }
+.glass-card input::placeholder { color: rgba(255,255,255,.5) !important; }
+/* keep browser autofill from turning the fields white or yellow */
+.glass-card input:-webkit-autofill,
+.glass-card input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff;
+  box-shadow: 0 0 0 1000px rgba(255,255,255,.12) inset !important;
+  transition: background-color 9999s ease-out;
+}
