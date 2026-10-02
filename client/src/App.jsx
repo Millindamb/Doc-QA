@@ -289,29 +289,34 @@ function Layout({ children }) {
       </aside>
 
       <main className="flex min-w-0 flex-1 flex-col overflow-y-auto">
-        <div className="sticky top-0 z-10 flex h-12 shrink-0 items-center border-b sb-border bg-white px-3">
-          <div className="flex items-center md:hidden">
-            <button onClick={() => setDrawer(true)} className="rounded-lg p-2 hover:bg-slate-100" aria-label="Open menu"><SidebarIcon /></button>
-          </div>
-          {/* pages (e.g. a document) can render their navbar here via a portal */}
-          <div id="topbar-slot" className="flex min-w-0 flex-1 items-stretch self-stretch" />
-          {!token && (
+        {/* sticky header = top bar + (mobile only) sub navbar, so both stay pinned while scrolling */}
+        <header className="sticky top-0 z-10 shrink-0 bg-white">
+          <div className="flex h-12 items-center border-b sb-border px-3">
+            <div className="flex items-center md:hidden">
+              <button onClick={() => setDrawer(true)} className="rounded-lg p-2 hover:bg-slate-100" aria-label="Open menu"><SidebarIcon /></button>
+            </div>
+            {/* pages (e.g. a document) can render their navbar here via a portal */}
+            <div id="topbar-slot" className="flex min-w-0 flex-1 items-stretch self-stretch" />
+            {!token && (
+              <button
+                onClick={() => openAuth('login')}
+                className="mr-2 shrink-0 rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100"
+              >
+                Sign in
+              </button>
+            )}
             <button
-              onClick={() => openAuth('login')}
-              className="mr-2 shrink-0 rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100"
+              onClick={toggleTheme}
+              title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+              aria-label="Toggle theme"
+              className="ml-auto shrink-0 rounded-lg p-2 text-slate-600 hover:bg-slate-100"
             >
-              Sign in
+              {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
             </button>
-          )}
-          <button
-            onClick={toggleTheme}
-            title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
-            aria-label="Toggle theme"
-            className="ml-auto shrink-0 rounded-lg p-2 text-slate-600 hover:bg-slate-100"
-          >
-            {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
-          </button>
-        </div>
+          </div>
+          {/* mobile-only sub navbar: DocumentView portals its section links here */}
+          <div id="subnav-slot" className="md:hidden" />
+        </header>
         <div className="mx-auto w-full max-w-5xl flex-1 px-4 py-4">{children}</div>
       </main>
 

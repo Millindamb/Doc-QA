@@ -19,10 +19,11 @@ const TABS = [
   { id: 'resources', label: 'Resources' },
 ];
 
-// Renders its children inside the app's top bar (the #topbar-slot element in App.jsx)
-function NavSlot({ children }) {
+// Renders its children inside an element of the app shell (see App.jsx):
+// #topbar-slot is the top bar, #subnav-slot is the mobile bar under it
+function NavSlot({ id = 'topbar-slot', children }) {
   const [el, setEl] = useState(null);
-  useEffect(() => { setEl(document.getElementById('topbar-slot')); }, []);
+  useEffect(() => { setEl(document.getElementById(id)); }, [id]);
   return el ? createPortal(children, el) : null;
 }
 
@@ -63,22 +64,48 @@ export default function DocumentView() {
     setTab(kind === 'practice' ? 'practice' : 'quiz');
   }
 
+  // the same tab buttons are used in the desktop top bar and in the mobile sub navbar
+  const renderTabs = (sizeClass, centerActive) =>
+    TABS.map((t) => {
+      const active = tab === t.id;
+      return (
+        <button
+          key={t.id}
+          role="tab"
+          aria-selected={active}
+          onClick={() => setTab(t.id)}
+          ref={(el) => {
+            // scroll only the tab strip sideways (never the whole page)
+            if (active && centerActive && el?.parentElement) {
+              const p = el.parentElement;
+              p.scrollTo({ left: el.offsetLeft - (p.clientWidth - el.clientWidth) / 2, behavior: 'smooth' });
+            }
+          }}
+          className={`flex shrink-0 items-center whitespace-nowrap border-b-2 font-medium transition-colors ${sizeClass} ${
+            active ? 'border-indigo-500 text-indigo-600' : 'border-transparent sb-muted sb-strong-hover'
+          }`}
+        >
+          {t.label}
+        </button>
+      );
+    });
+
   return (
     <div className="space-y-4">
-      {/* ---- navbar: back, title, badges and tabs live in the top bar ---- */}
+      {/* ---- top bar: document name (+ tabs on desktop) ---- */}
       <NavSlot>
         <div className="flex min-w-0 flex-1 items-stretch gap-2">
           <Link
             to="/"
             title="All documents"
             aria-label="All documents"
-            className="my-auto shrink-0 rounded-lg p-2 text-slate-500 hover:bg-slate-100"
+            className="my-auto hidden shrink-0 rounded-lg p-2 text-slate-500 hover:bg-slate-100 md:inline-flex"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
           </Link>
 
-          <div className="my-auto flex min-w-0 shrink items-center gap-2">
-            <h1 className="max-w-[8rem] truncate text-sm font-semibold text-slate-900 sm:max-w-[13rem] lg:max-w-xs" title={doc.title}>{doc.title}</h1>
+          <div className="my-auto flex min-w-0 flex-1 items-center gap-2 md:flex-none md:shrink">
+            <h1 className="truncate text-sm font-semibold text-slate-900 md:max-w-[13rem] lg:max-w-xs" title={doc.title}>{doc.title}</h1>
             <div className="hidden items-center gap-1.5 xl:flex">
               <Badge tone={doc.status === 'ready' ? 'green' : doc.status === 'failed' ? 'red' : 'amber'}>{doc.status}</Badge>
               <Badge>{doc.chunks.length} chunks</Badge>
@@ -86,36 +113,30 @@ export default function DocumentView() {
             </div>
           </div>
 
-          <nav className="ml-2 flex min-w-0 flex-1 items-stretch gap-1 overflow-x-auto" role="tablist" aria-label="Document sections">
-            {TABS.map((t) => {
-              const active = tab === t.id;
-              return (
-                <button
-                  key={t.id}
-                  role="tab"
-                  aria-selected={active}
-                  onClick={() => setTab(t.id)}
-                  className={`flex shrink-0 items-center border-b-2 px-3 text-sm font-medium transition-colors ${
-                    active ? 'border-indigo-500 text-indigo-600' : 'border-transparent sb-muted sb-strong-hover'
-                  }`}
-                >
-                  {t.label}
-                </button>
-              );
-            })}
+          {/* desktop tabs */}
+          <nav className="ml-2 hidden min-w-0 flex-1 items-stretch gap-1 overflow-x-auto md:flex" role="tablist" aria-label="Document sections">
+            {renderTabs('px-3 text-sm', false)}
           </nav>
 
           {tab === 'chat' && (
             <button
               onClick={() => setChatKey((k) => k + 1)}
               title="New chat"
-              className="my-auto flex shrink-0 items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-100"
+              aria-label="New chat"
+              className="my-auto flex shrink-0 items-center gap-1.5 rounded-lg border border-slate-200 px-2.5 py-1.5 text-sm text-slate-700 hover:bg-slate-100 sm:px-3"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M5 12h14" /></svg>
               <span className="hidden sm:inline">New chat</span>
             </button>
           )}
         </div>
+      </NavSlot>
+
+      {/* ---- mobile sub navbar (like Amazon): scrollable section links under the top bar ---- */}
+      <NavSlot id="subnav-slot">
+        <nav className="no-scrollbar flex items-stretch overflow-x-auto border-b sb-border px-2" role="tablist" aria-label="Document sections">
+          {renderTabs('h-11 px-4 text-sm', true)}
+        </nav>
       </NavSlot>
 
       {doc.status === 'failed' && <ErrorBox message={doc.errorMessage || 'Processing failed for this document.'} />}
