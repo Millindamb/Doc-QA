@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Link, useParams } from 'react-router-dom';
 import { analyzeDocument, errorMessage, getAnalysis, getDocument } from '../api.js';
-import { Badge, Button, ErrorBox, Spinner, Tabs, useLoader } from '../components/ui.jsx';
+import { Badge, Button, ErrorBox, Spinner, useLoader } from '../components/ui.jsx';
 import OverviewPanel from '../components/OverviewPanel.jsx';
 import ChatPanel from '../components/ChatPanel.jsx';
 import QuizPanel from '../components/QuizPanel.jsx';
@@ -17,6 +18,13 @@ const TABS = [
   { id: 'research', label: 'Research' },
   { id: 'resources', label: 'Resources' },
 ];
+
+// Renders its children inside the app's top bar (the #topbar-slot element in App.jsx)
+function NavSlot({ children }) {
+  const [el, setEl] = useState(null);
+  useEffect(() => { setEl(document.getElementById('topbar-slot')); }, []);
+  return el ? createPortal(children, el) : null;
+}
 
 export default function DocumentView() {
   const { id } = useParams();
@@ -56,15 +64,47 @@ export default function DocumentView() {
 
   return (
     <div className="space-y-4">
-      <div>
-        <Link to="/" className="text-sm text-slate-500 hover:text-slate-800">&larr; All documents</Link>
-        <div className="mt-1 flex flex-wrap items-center gap-3">
-          <h1 className="text-2xl font-bold text-slate-900">{doc.title}</h1>
-          <Badge tone={doc.status === 'ready' ? 'green' : doc.status === 'failed' ? 'red' : 'amber'}>{doc.status}</Badge>
-          <Badge>{doc.chunks.length} chunks</Badge>
-          <Badge>{doc.sourceType}</Badge>
+      {/* ---- navbar: back, title, badges and tabs live in the top bar ---- */}
+      <NavSlot>
+        <div className="flex min-w-0 flex-1 items-stretch gap-2">
+          <Link
+            to="/"
+            title="All documents"
+            aria-label="All documents"
+            className="my-auto shrink-0 rounded-lg p-2 text-slate-500 hover:bg-slate-100"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+          </Link>
+
+          <div className="my-auto flex min-w-0 shrink items-center gap-2">
+            <h1 className="max-w-[8rem] truncate text-sm font-semibold text-slate-900 sm:max-w-[13rem] lg:max-w-xs" title={doc.title}>{doc.title}</h1>
+            <div className="hidden items-center gap-1.5 xl:flex">
+              <Badge tone={doc.status === 'ready' ? 'green' : doc.status === 'failed' ? 'red' : 'amber'}>{doc.status}</Badge>
+              <Badge>{doc.chunks.length} chunks</Badge>
+              <Badge>{doc.sourceType}</Badge>
+            </div>
+          </div>
+
+          <nav className="ml-2 flex min-w-0 flex-1 items-stretch gap-1 overflow-x-auto" role="tablist" aria-label="Document sections">
+            {TABS.map((t) => {
+              const active = tab === t.id;
+              return (
+                <button
+                  key={t.id}
+                  role="tab"
+                  aria-selected={active}
+                  onClick={() => setTab(t.id)}
+                  className={`flex shrink-0 items-center border-b-2 px-3 text-sm font-medium transition-colors ${
+                    active ? 'border-indigo-500 text-indigo-600' : 'border-transparent sb-muted sb-strong-hover'
+                  }`}
+                >
+                  {t.label}
+                </button>
+              );
+            })}
+          </nav>
         </div>
-      </div>
+      </NavSlot>
 
       {doc.status === 'failed' && <ErrorBox message={doc.errorMessage || 'Processing failed for this document.'} />}
       {doc.status === 'ready' && !analyzed && !anaQ.loading && (
@@ -75,9 +115,7 @@ export default function DocumentView() {
       )}
       <ErrorBox message={analyzeError} />
 
-      <Tabs tabs={TABS} active={tab} onChange={setTab} />
-
-      <div className="pt-2">
+      <div>
         {doc.status !== 'ready' ? (
           <p className="text-sm text-slate-500">This document is not ready yet.</p>
         ) : (

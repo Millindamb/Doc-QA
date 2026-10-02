@@ -74,3 +74,56 @@ html.dark body { background: #000 !important; color: #ececec !important; }
 .dark ::-webkit-scrollbar { width: 10px; height: 10px; }
 .dark ::-webkit-scrollbar-thumb { background: #333; border-radius: 8px; }
 .dark ::-webkit-scrollbar-track { background: transparent; }
+
+
+/* ===== theme-aware sidebar + search modal (light by default, black in dark) ===== */
+:root {
+  --sb-bg: #f9f9f9;
+  --sb-border: #e5e5e5;
+  --sb-strong: #0d0d0d;
+  --sb-text: #2b2b2b;
+  --sb-muted: #6b6b6b;
+  --sb-hover: #ececec;
+  --sb-active: #e2e2e2;
+}
+html.dark {
+  --sb-bg: #000000;
+  --sb-border: #1f1f1f;
+  --sb-strong: #ffffff;
+  --sb-text: #d4d4d4;
+  --sb-muted: #8a8a8a;
+  --sb-hover: #1f1f1f;
+  --sb-active: #2f2f2f;
+}
+.sb-bg { background-color: var(--sb-bg); }
+.sb-border { border-color: var(--sb-border); }
+.sb-strong { color: var(--sb-strong); }
+.sb-text { color: var(--sb-text); }
+.sb-muted { color: var(--sb-muted); }
+.sb-hover:hover { background-color: var(--sb-hover); }
+.sb-active { background-color: var(--sb-active); }
+
+/* ===== chat input ===== */
+/* the textarea sits inside the rounded bar, so it must not draw its own box */
+.chat-input, .dark .chat-input {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.dark .chat-bar { background-color: #1a1a1a !important; border-color: #2f2f2f !important; }
+
+/* round send button: dark circle in light theme, white circle in dark theme */
+.send-btn {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 9999px;
+  background: #0d0d0d; color: #fff; transition: opacity .15s;
+}
+.dark .send-btn { background: #ffffff; color: #000000; }
+.send-btn:disabled { opacity: .25; cursor: default; }
+.chat-dot { width: 7px; height: 7px; border-radius: 9999px; background: currentColor; animation: chat-bounce 1.2s infinite ease-in-out; }
+.chat-dot:nth-child(2) { animation-delay: .15s; }
+.chat-dot:nth-child(3) { animation-delay: .3s; }
+@keyframes chat-bounce { 0%, 80%, 100% { opacity: .25; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-3px); } }
+
+/* navbar tabs */
+.sb-strong-hover:hover { color: var(--sb-strong); }

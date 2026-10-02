@@ -55,9 +55,9 @@ function useDesktop() {
 
 const rowBase = 'flex items-center rounded-lg text-sm transition-colors';
 const rowClass = (compact) => ({ isActive }) =>
-  `${rowBase} ${compact ? 'h-11 w-11 justify-center' : 'gap-3 px-3 py-2'} ${isActive ? 'bg-[#2f2f2f] text-white' : 'text-neutral-300 hover:bg-[#1f1f1f]'}`;
+  `${rowBase} ${compact ? 'h-11 w-11 justify-center' : 'gap-3 px-3 py-2'} ${isActive ? 'sb-active sb-strong' : 'sb-text sb-hover'}`;
 const btnClass = (compact) =>
-  `${rowBase} ${compact ? 'h-11 w-11 justify-center' : 'gap-3 px-3 py-2 w-full text-left'} text-neutral-200 hover:bg-[#1f1f1f]`;
+  `${rowBase} ${compact ? 'h-11 w-11 justify-center' : 'gap-3 px-3 py-2 w-full text-left'} sb-text sb-hover`;
 
 /* ---------- search modal: searches document titles and chat messages ---------- */
 function snippet(text, q) {
@@ -112,25 +112,25 @@ function SearchModal({ docs, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/60 px-4 pt-[12vh]" onClick={onClose}>
-      <div className="w-full max-w-xl overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#171717] text-neutral-100 shadow-2xl" onClick={(e) => e.stopPropagation()}>
-        <div className="flex items-center gap-3 border-b border-[#2a2a2a] px-4 py-3 text-neutral-400">
+      <div className="w-full max-w-xl overflow-hidden rounded-2xl border sb-border sb-bg sb-strong shadow-2xl" onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-center gap-3 border-b sb-border px-4 py-3 sb-muted">
           <SearchIcon />
           <input
             autoFocus
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search your documents and chats"
-            className="flex-1 border-0 bg-transparent text-base text-neutral-100 outline-none"
+            className="chat-input flex-1 border-0 bg-transparent text-base sb-strong outline-none"
           />
-          <button onClick={onClose} className="rounded-md px-2 py-1 text-xs text-neutral-400 hover:bg-[#242424]">Esc</button>
+          <button onClick={onClose} className="rounded-md px-2 py-1 text-xs sb-muted sb-hover">Esc</button>
         </div>
 
         <div className="max-h-[55vh] overflow-y-auto p-2">
           {titleHits.length > 0 && (
             <>
-              <div className="px-3 py-1 text-xs text-neutral-500">{q ? 'Documents' : 'Recent documents'}</div>
+              <div className="px-3 py-1 text-xs sb-muted">{q ? 'Documents' : 'Recent documents'}</div>
               {titleHits.map((d) => (
-                <button key={docId(d)} onClick={() => open(docId(d))} className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-sm hover:bg-[#242424]">
+                <button key={docId(d)} onClick={() => open(docId(d))} className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-sm sb-hover">
                   <ChatIcon /><span className="truncate">{docTitle(d)}</span>
                 </button>
               ))}
@@ -139,19 +139,19 @@ function SearchModal({ docs, onClose }) {
 
           {q && chatHits.length > 0 && (
             <>
-              <div className="mt-2 px-3 py-1 text-xs text-neutral-500">Chat messages</div>
+              <div className="mt-2 px-3 py-1 text-xs sb-muted">Chat messages</div>
               {chatHits.map((e, i) => (
-                <button key={i} onClick={() => open(e.id)} className="block w-full rounded-lg px-3 py-2 text-left hover:bg-[#242424]">
+                <button key={i} onClick={() => open(e.id)} className="block w-full rounded-lg px-3 py-2 text-left sb-hover">
                   <div className="truncate text-sm">{snippet(e.text, q)}</div>
-                  <div className="mt-0.5 text-xs text-neutral-500">{e.title} · {e.role === 'user' ? 'You' : 'DocQA'}</div>
+                  <div className="mt-0.5 text-xs sb-muted">{e.title} · {e.role === 'user' ? 'You' : 'DocQA'}</div>
                 </button>
               ))}
             </>
           )}
 
-          {q && loading && <p className="px-3 py-3 text-sm text-neutral-500">Searching chats...</p>}
+          {q && loading && <p className="px-3 py-3 text-sm sb-muted">Searching chats...</p>}
           {q && !loading && titleHits.length === 0 && chatHits.length === 0 && (
-            <p className="px-3 py-6 text-center text-sm text-neutral-500">No results for "{query.trim()}"</p>
+            <p className="px-3 py-6 text-center text-sm sb-muted">No results for "{query.trim()}"</p>
           )}
         </div>
       </div>
@@ -189,19 +189,19 @@ function Sidebar({ compact, onToggle, onNavigate, onSearch, docs }) {
   return (
     <div className="flex h-full flex-col p-2">
       <div className="flex items-center justify-between px-1 py-2">
-        <button onClick={() => go('/')} className="flex items-center gap-2 text-lg font-semibold text-white">
+        <button onClick={() => go('/')} className="flex items-center gap-2 text-lg font-semibold sb-strong">
           <Logo size={32} />DocQA
         </button>
-        <button onClick={onToggle} title="Close sidebar" aria-label="Close sidebar" className="rounded-lg p-2 text-neutral-300 hover:bg-[#1f1f1f]"><SidebarIcon /></button>
+        <button onClick={onToggle} title="Close sidebar" aria-label="Close sidebar" className="rounded-lg p-2 sb-text sb-hover"><SidebarIcon /></button>
       </div>
 
       <button onClick={() => go('/upload')} className={`${btnClass(false)} mt-1`}><NewIcon />New document</button>
       <button onClick={onSearch} className={btnClass(false)}><SearchIcon />Search chats</button>
       <NavLink to="/" end onClick={onNavigate} className={rowClass(false)}><FolderIcon />All documents</NavLink>
 
-      <div className="mt-5 px-3 text-xs text-neutral-500">Recent documents</div>
+      <div className="mt-5 px-3 text-xs sb-muted">Recent documents</div>
       <div className="mt-1 flex-1 space-y-0.5 overflow-y-auto">
-        {docs.length === 0 && <p className="px-3 py-2 text-sm text-neutral-500">No documents yet</p>}
+        {docs.length === 0 && <p className="px-3 py-2 text-sm sb-muted">No documents yet</p>}
         {docs.map((d) => (
           <NavLink key={docId(d)} to={`/documents/${docId(d)}`} onClick={onNavigate} className={rowClass(false)}>
             <ChatIcon />
@@ -210,12 +210,12 @@ function Sidebar({ compact, onToggle, onNavigate, onSearch, docs }) {
         ))}
       </div>
 
-      <div className="flex items-center justify-between border-t border-[#1f1f1f] px-2 pt-3">
+      <div className="flex items-center justify-between border-t sb-border px-2 pt-3">
         <div className="flex min-w-0 items-center gap-2">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-purple-500 text-xs font-semibold text-white">{initials}</div>
-          <span className="truncate text-sm text-neutral-100">{name}</span>
+          <span className="truncate text-sm sb-strong">{name}</span>
         </div>
-        <button onClick={logout} title="Log out" aria-label="Log out" className="ml-2 shrink-0 rounded-lg p-2 text-neutral-400 hover:bg-[#1f1f1f] hover:text-white"><LogoutIcon /></button>
+        <button onClick={logout} title="Log out" aria-label="Log out" className="ml-2 shrink-0 rounded-lg p-2 sb-muted sb-hover"><LogoutIcon /></button>
       </div>
     </div>
   );
@@ -263,7 +263,7 @@ function Layout({ children }) {
       {drawer && <div className="fixed inset-0 z-20 bg-black/50 md:hidden" onClick={() => setDrawer(false)} />}
 
       <aside
-        className={`fixed z-30 h-full w-64 border-r border-[#1f1f1f] bg-black transition-all duration-200 md:static md:translate-x-0 ${
+        className={`fixed z-30 h-full w-64 border-r sb-border sb-bg transition-all duration-200 md:static md:translate-x-0 ${
           compact ? 'md:w-[72px]' : 'md:w-64'
         } ${drawer ? 'translate-x-0' : '-translate-x-full'}`}
       >
@@ -271,21 +271,22 @@ function Layout({ children }) {
       </aside>
 
       <main className="flex min-w-0 flex-1 flex-col overflow-y-auto">
-        <div className="sticky top-0 z-10 flex items-center bg-white px-3 py-2">
+        <div className="sticky top-0 z-10 flex h-12 shrink-0 items-center border-b sb-border bg-white px-3">
           <div className="flex items-center md:hidden">
             <button onClick={() => setDrawer(true)} className="rounded-lg p-2 hover:bg-slate-100" aria-label="Open menu"><SidebarIcon /></button>
-            <span className="ml-2 font-semibold text-indigo-700">DocQA</span>
           </div>
+          {/* pages (e.g. a document) can render their navbar here via a portal */}
+          <div id="topbar-slot" className="flex min-w-0 flex-1 items-stretch self-stretch" />
           <button
             onClick={toggleTheme}
             title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
             aria-label="Toggle theme"
-            className="ml-auto rounded-lg p-2 text-slate-600 hover:bg-slate-100"
+            className="ml-auto shrink-0 rounded-lg p-2 text-slate-600 hover:bg-slate-100"
           >
             {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
           </button>
         </div>
-        <div className="mx-auto w-full max-w-5xl flex-1 px-4 py-6">{children}</div>
+        <div className="mx-auto w-full max-w-5xl flex-1 px-4 py-4">{children}</div>
       </main>
 
       {searchOpen && <SearchModal docs={docs} onClose={() => setSearchOpen(false)} />}
