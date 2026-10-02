@@ -31,6 +31,7 @@ export default function DocumentView() {
   const [tab, setTab] = useState('overview');
   const [openQuizId, setOpenQuizId] = useState(null);
   const [openPracticeId, setOpenPracticeId] = useState(null);
+  const [chatKey, setChatKey] = useState(0); // bumping it starts a new chat in ChatPanel
   const [analyzing, setAnalyzing] = useState(false);
   const [analyzeError, setAnalyzeError] = useState('');
 
@@ -103,6 +104,17 @@ export default function DocumentView() {
               );
             })}
           </nav>
+
+          {tab === 'chat' && (
+            <button
+              onClick={() => setChatKey((k) => k + 1)}
+              title="New chat"
+              className="my-auto flex shrink-0 items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-100"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M5 12h14" /></svg>
+              <span className="hidden sm:inline">New chat</span>
+            </button>
+          )}
         </div>
       </NavSlot>
 
@@ -122,7 +134,7 @@ export default function DocumentView() {
           <>
             {tab === 'overview' && (anaQ.loading ? <Spinner /> : anaQ.error ? <ErrorBox message={anaQ.error} onRetry={anaQ.reload} /> : <OverviewPanel doc={doc} analysis={anaQ.data} />)}
             {/* chat keeps its state while you switch tabs */}
-            <div hidden={tab !== 'chat'}><ChatPanel documentId={id} onOpenSet={openFromChat} /></div>
+            <div hidden={tab !== 'chat'}><ChatPanel documentId={id} onOpenSet={openFromChat} resetKey={chatKey} /></div>
             {tab === 'quiz' && <QuizPanel documentId={id} initialQuizId={openQuizId} />}
             {tab === 'practice' && <PracticePanel documentId={id} initialSetId={openPracticeId} />}
             {tab === 'research' && <ResearchPanel documentId={id} analyzed={analyzed} />}

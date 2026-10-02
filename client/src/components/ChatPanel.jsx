@@ -11,7 +11,7 @@ const MODES = [
 const SUGGESTIONS = ['Summarize the main ideas of this document', 'What are the key definitions I should know?', "I don't understand the most difficult concept - explain it simply", 'Quiz me on this document', 'Find videos to study this topic'];
 const intentTone = { question: 'slate', doubt: 'amber', quiz: 'indigo', practice: 'indigo', research: 'green', resources: 'green' };
 
-export default function ChatPanel({ documentId, onOpenSet }) {
+export default function ChatPanel({ documentId, onOpenSet, resetKey }) {
   const [messages, setMessages] = useState([]);
   const [sessionId, setSessionId] = useState(null);
   const [mode, setMode] = useState('knowledge');
@@ -21,6 +21,7 @@ export default function ChatPanel({ documentId, onOpenSet }) {
   const [error, setError] = useState('');
   const bottomRef = useRef(null);
   const boxRef = useRef(null);
+  const lastReset = useRef(resetKey);
 
   // restore the most recent conversation for this document
   useEffect(() => {
@@ -75,6 +76,11 @@ export default function ChatPanel({ documentId, onOpenSet }) {
     }
   }
 
+  // the "New chat" button lives in the navbar (DocumentView) and bumps resetKey
+  useEffect(() => {
+    if (lastReset.current !== resetKey) { lastReset.current = resetKey; newChat(); }
+  }, [resetKey]);
+
   function newChat() {
     setMessages([]);
     setSessionId(null);
@@ -84,7 +90,7 @@ export default function ChatPanel({ documentId, onOpenSet }) {
   const empty = !restoring && messages.length === 0;
   const hint = MODES.find((m) => m.value === mode).hint;
 
-  const inputBar = (
+  const renderBar = (withHint) => (
     <div className="mx-auto w-full max-w-3xl">
       <ErrorBox message={error} className="mb-2" />
       <form
@@ -112,27 +118,21 @@ export default function ChatPanel({ documentId, onOpenSet }) {
           </button>
         </div>
       </form>
-      <p className="mt-2 text-center text-xs text-slate-500">{hint}</p>
+      {withHint && <p className="mt-2 text-center text-xs text-slate-500">{hint}</p>}
     </div>
   );
 
   return (
-    <div className="flex h-[calc(100vh-8rem)] min-h-[420px] flex-col">
-      {messages.length > 0 && (
-        <div className="flex justify-end pb-2">
-          <Button variant="secondary" onClick={newChat}>New chat</Button>
-        </div>
-      )}
-
+    <div className="flex h-[calc(100vh-5.25rem)] min-h-[420px] flex-col">
       {restoring && <div className="flex flex-1 items-center justify-center"><Spinner label="Loading conversation..." /></div>}
 
       {empty && (
-        <div className="flex flex-1 flex-col items-center justify-center gap-6 pt-16">
+        <div className="flex flex-1 flex-col items-center justify-center gap-6 pt-28">
           <div className="text-center">
             <h3 className="text-3xl font-medium text-slate-800">What do you want to know?</h3>
             <p className="mt-2 text-sm text-slate-500">Answers are grounded in your document and cite the passages they use.</p>
           </div>
-          {inputBar}
+          {renderBar(true)}
           <div className="grid w-full max-w-3xl gap-2 sm:grid-cols-2">
             {SUGGESTIONS.map((s) => (
               <button key={s} onClick={() => send(s)} className="rounded-2xl border border-slate-200 px-4 py-2.5 text-left text-sm text-slate-700 hover:bg-slate-100">{s}</button>
@@ -156,7 +156,7 @@ export default function ChatPanel({ documentId, onOpenSet }) {
               <div ref={bottomRef} />
             </div>
           </div>
-          <div className="pt-2">{inputBar}</div>
+          <div className="pt-1">{renderBar(false)}</div>
         </>
       )}
     </div>
