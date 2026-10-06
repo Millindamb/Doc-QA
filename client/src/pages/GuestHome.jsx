@@ -1,7 +1,7 @@
 import { useAuth } from '../auth.jsx';
 
 // background image: put your file at client/public/paperly-bg.jpg
-const BG = '/paperly-bg.png';
+const BG = '/img4.jpg';
 
 const FEATURES = [
   { title: 'Chat with citations', text: 'Ask anything and get answers grounded in your document, with the passages cited.' },
