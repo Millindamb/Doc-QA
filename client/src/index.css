@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* hides the scrollbar on the mobile sub navbar (still scrolls) */
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
 .no-scrollbar {
   scrollbar-width: none;
 }

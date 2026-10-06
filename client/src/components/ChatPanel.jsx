@@ -123,7 +123,7 @@ export default function ChatPanel({ documentId, onOpenSet, resetKey }) {
   );
 
   return (
-    <div className="flex h-[calc(100vh-5.25rem)] min-h-[420px] flex-col">
+    <div className="flex h-[calc(100dvh-8rem)] min-h-[420px] flex-col md:h-[calc(100dvh-5.25rem)]">
       {restoring && <div className="flex flex-1 items-center justify-center"><Spinner label="Loading conversation..." /></div>}
 
       {empty && (

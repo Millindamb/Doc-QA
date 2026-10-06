@@ -176,8 +176,11 @@ function Sidebar({ compact, onToggle, onNavigate, onSearch, docs }) {
   if (compact) {
     return (
       <div className="flex h-full flex-col items-center gap-1 py-3">
-        <button onClick={() => go('/')} title="Paperly" aria-label="Paperly home" className="mb-1"><Logo /></button>
-        <button onClick={onToggle} title="Open sidebar" aria-label="Open sidebar" className={btnClass(true)}><SidebarIcon /></button>
+        {/* logo and open-sidebar button share one spot: the logo shows normally, the button replaces it while the rail is hovered */}
+        <button onClick={onToggle} title="Open sidebar" aria-label="Open sidebar" className="relative mb-1 h-11 w-11 shrink-0">
+          <span className="absolute inset-0 flex items-center justify-center transition-opacity duration-150 group-hover:opacity-0 group-focus-within:opacity-0"><Logo /></span>
+          <span className="absolute inset-0 flex items-center justify-center rounded-lg opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100 sb-text sb-hover"><SidebarIcon /></span>
+        </button>
         <button onClick={() => go('/upload')} title="New document" aria-label="New document" className={btnClass(true)}><NewIcon /></button>
         <button onClick={onSearch} title="Search chats" aria-label="Search chats" className={btnClass(true)}><SearchIcon /></button>
         <NavLink to="/" end title="All documents" aria-label="All documents" className={rowClass(true)}><FolderIcon /></NavLink>
@@ -277,11 +280,11 @@ function Layout({ children }) {
   const openSearch = () => { setDrawer(false); if (!token) openAuth('login'); else setSearchOpen(true); };
 
   return (
-    <div className="flex h-screen bg-white text-slate-900">
+    <div className="flex h-[100dvh] bg-white text-slate-900">
       {drawer && <div className="fixed inset-0 z-20 bg-black/50 md:hidden" onClick={() => setDrawer(false)} />}
 
       <aside
-        className={`fixed z-30 h-full w-64 border-r sb-border sb-bg transition-all duration-200 md:static md:translate-x-0 ${
+        className={`group fixed z-30 h-full w-64 border-r sb-border sb-bg transition-all duration-200 md:static md:translate-x-0 ${
           compact ? 'md:w-[72px]' : 'md:w-64'
         } ${drawer ? 'translate-x-0' : '-translate-x-full'}`}
       >
@@ -289,34 +292,33 @@ function Layout({ children }) {
       </aside>
 
       <main className="flex min-w-0 flex-1 flex-col overflow-y-auto">
-        {/* sticky header = top bar + (mobile only) sub navbar, so both stay pinned while scrolling */}
-        <header className="sticky top-0 z-10 shrink-0 bg-white">
-          <div className="flex h-12 items-center border-b sb-border px-3">
-            <div className="flex items-center md:hidden">
-              <button onClick={() => setDrawer(true)} className="rounded-lg p-2 hover:bg-slate-100" aria-label="Open menu"><SidebarIcon /></button>
-            </div>
-            {/* pages (e.g. a document) can render their navbar here via a portal */}
-            <div id="topbar-slot" className="flex min-w-0 flex-1 items-stretch self-stretch" />
-            {!token && (
-              <button
-                onClick={() => openAuth('login')}
-                className="mr-2 shrink-0 rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100"
-              >
-                Sign in
-              </button>
-            )}
-            <button
-              onClick={toggleTheme}
-              title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
-              aria-label="Toggle theme"
-              className="ml-auto shrink-0 rounded-lg p-2 text-slate-600 hover:bg-slate-100"
-            >
-              {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
-            </button>
+        <div className="sticky top-0 z-10 shrink-0 bg-white">
+        <div className="flex h-12 items-center border-b sb-border px-3">
+          <div className="flex items-center md:hidden">
+            <button onClick={() => setDrawer(true)} className="rounded-lg p-2 hover:bg-slate-100" aria-label="Open menu"><SidebarIcon /></button>
           </div>
-          {/* mobile-only sub navbar: DocumentView portals its section links here */}
-          <div id="subnav-slot" className="md:hidden" />
-        </header>
+          {/* pages (e.g. a document) can render their navbar here via a portal */}
+          <div id="topbar-slot" className="flex min-w-0 flex-1 items-stretch self-stretch" />
+          {!token && (
+            <button
+              onClick={() => openAuth('login')}
+              className="mr-2 shrink-0 rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100"
+            >
+              Sign in
+            </button>
+          )}
+          <button
+            onClick={toggleTheme}
+            title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+            aria-label="Toggle theme"
+            className="ml-auto shrink-0 rounded-lg p-2 text-slate-600 hover:bg-slate-100"
+          >
+            {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+          </button>
+        </div>
+        {/* mobile sub navbar (document tabs) is rendered here by DocumentView */}
+        <div id="subnav-slot" className="md:hidden" />
+        </div>
         <div className="mx-auto w-full max-w-5xl flex-1 px-4 py-4">{children}</div>
       </main>
 
